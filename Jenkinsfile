@@ -1,7 +1,7 @@
 pipeline {
     agent { dockerfile true }
     stages {
-        stage('Test') {
+        stage('Post Build1') {
             steps {
                 echo 'built'
                 
