@@ -1,11 +1,12 @@
 def workspace_loc
+def myImg
 node{
         stage('checkout_code'){
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Dcoder99/Container-Security-With-JenkinsCI.git']]])
             workspace_loc = pwd()
         }
         stage('build_docker_image'){
-            dockerfile true
+            myImg = docker.build("test_image")
         }
         stage('static_analysis') {
             build job: 'static_analysis', parameters: [string(name: 'myWorkspace', value: workspace_loc)]
