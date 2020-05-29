@@ -3,8 +3,10 @@ pipeline {
     agent any
     stages{
         stage('checkout_code'){
-            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Dcoder99/Container-Security-With-JenkinsCI.git']]])
-            workspace_loc = pwd()
+            steps{
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Dcoder99/Container-Security-With-JenkinsCI.git']]])
+                workspace_loc = pwd()
+            }
         }
         stage('build_docker_image'){
             agent {
@@ -17,7 +19,9 @@ pipeline {
             }
         }
         stage('run_container'){
+            steps{
                 build job: 'run_container', parameters: [string(name: 'myWorkspace', value: workspace_loc)]
+            }
         }
     }
 }
