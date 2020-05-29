@@ -10,19 +10,21 @@ pipeline {
                 workspace_loc = pwd()
             }
         }
-        stage('build_docker_image'){
-            agent {
-                dockerfile true
+        stages{
+            stage('build_docker_image'){
+                agent {
+                    dockerfile true
+                }
             }
-        }
-        stage('static_analysis') {
-            steps {
-                build job: 'static_analysis', parameters: [string(name: 'myWorkspace', value: workspace_loc)]
+            stage('static_analysis') {
+                steps {
+                    build job: 'static_analysis', parameters: [string(name: 'myWorkspace', value: workspace_loc)]
+                }
             }
-        }
-        stage('run_container'){
-            steps{
-                build job: 'run_container', parameters: [string(name: 'myWorkspace', value: workspace_loc)]
+            stage('run_container'){
+                steps{
+                    build job: 'run_container', parameters: [string(name: 'myWorkspace', value: workspace_loc)]
+                }
             }
         }
     }
