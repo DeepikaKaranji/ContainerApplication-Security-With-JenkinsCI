@@ -5,6 +5,8 @@ pipeline {
         stage('checkout_code'){
             steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Dcoder99/Container-Security-With-JenkinsCI.git']]])
+            }
+            steps{
                 workspace_loc = pwd()
             }
         }
