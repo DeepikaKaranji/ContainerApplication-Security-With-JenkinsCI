@@ -5,4 +5,4 @@ Flask-SQLAlchemy
 requests==2.8.1
 docker
 flask-cors
-Jinja==2
+
