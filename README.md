@@ -32,4 +32,4 @@ Additionally, we also explored WhiteSource as an alternative to SNYK for Source 
 
 ## Results
 
-Real Time reports of Vulnerability details, Potential Fixes, Scores, and other summaries were generated at every stage. The builds failed when high severity vulnerabilities were detected. 
+Real Time reports of Vulnerability details, Potential Fixes, Scores, and other summaries were generated at every stage. The builds failed when high severity vulnerabilities were detected. Whitesource detected vulnerabilities and has opened them as issues in this repository. 
