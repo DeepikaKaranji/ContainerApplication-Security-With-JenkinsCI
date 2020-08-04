@@ -1,4 +1,4 @@
-# Container Security With JenkinsCI
+# Securing Development Lifecycle of Conainerised Applications with JenkinsCI
 
 Securing the development lifecycle of containerised applications is essential for any product/company.   
 This project automates the workflow for securing any containerised application in its development lifecycle.   
